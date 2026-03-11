@@ -1,6 +1,15 @@
+resource "aws_s3_bucket" "my-tf-test-bucket" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "my-tf-test-bucket"
+    Environment = "Dev"
+  }
+}
+
 terraform {
   backend "s3" {
-    bucket = "terraform-myec2"
+    bucket = "my-tf-test-bucket"
     key    = "terraform-practical/New-Project/terraform.tfstate"
     region = "ap-south-1"
   }
@@ -41,7 +50,7 @@ resource "aws_instance" "Web-Server" {
   }
 
   security_groups = [aws_security_group.my-sg.name]
-  
+
   user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
