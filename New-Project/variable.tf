@@ -1,6 +1,7 @@
 variable "ami" {
-  type    = string
-  default = "ami-0f559c3642608c138"
+  type        = string
+  description = "Enter Your region AMI ID"
+  default     = "ami-0f559c3642608c138"
 }
 
 variable "ec2-type" {
