@@ -1,0 +1,2 @@
+current workspace is prod
+instance type is t2.medium
